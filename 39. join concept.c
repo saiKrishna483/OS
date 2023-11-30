@@ -1,0 +1,15 @@
+#include <stdio.h>
+#include <pthread.h>
+
+void *threadFunction(void *arg) {
+    printf("Hello from the new thread!\n");
+    return NULL;
+}
+
+int main() {
+    pthread_t thread;
+    pthread_create(&thread, NULL, threadFunction, NULL);
+    pthread_join(thread, NULL);
+    printf("New thread has completed!\n");
+    return 0;
+}
